@@ -17,22 +17,33 @@ class Student:
         return "No!"
     
 if __name__ == "__main__":
-    flag1 = flag2 = flag3 = flag4 = False
     while True:
-        ID = input("Student's ID: ")
-        avrmark = int(input("Student's avrmark: "))
-        age = int(input("Student's age: "))
-        grade = input("Student's grade: ")
+        flag1 = flag2 = flag3 = flag4 = False
+        ID = input("Student's ID (8 characters): ")
+        avrmark = int(input("Student's avrmark (0 - 10): "))
+        age = int(input("Student's age (>=18): "))
+        grade = input("Student's grade (A or C): ")
+        
+        
         if len(ID)!=8:
             print("Your ID is not Identified!")
-        if avrmark>10 and avrmark<0:
+            flag1 = True
+        if avrmark>10 or avrmark<0:
             print("Your average mark is not correct!")
+            flag2 = True
         if age<18:
             print("You entered wrong age!")
+            flag3 = True  
         if grade[0] not in ["A","C"]:
             print("Wrong Grade!")
-        if ():
-            break
+            flag4 = True  
+        if (flag1 == False and flag2 == False and flag3 == False and flag4 == False):
+            break 
+        print(f"flag1 = {flag1}")
+        print(f"flag2 = {flag2}")
+        print(f"flag3 = {flag3}")
+        print(f"flag4 = {flag4}")
+
     
     print("-----output-----")
     call = Student(ID, avrmark, age, grade)
